@@ -387,6 +387,10 @@ class MPHtmlEditorNode {
 
     constructor(obj)
     {
+        this.nodeName = null;
+        this.attrList = {};
+        this.body = [];
+        
         if(obj instanceof HTMLElement) {
             this.buildFromHtml(obj);
         } else {
@@ -397,7 +401,7 @@ class MPHtmlEditorNode {
     buildFromObject(obj)
     {
         this.nodeName = obj.nodeName;
-        this.attrList = obj.attrList;
+        this.attrList = obj.attrList ?? [];
         this.body = [];
 
         if(typeof obj.body != 'undefined')
